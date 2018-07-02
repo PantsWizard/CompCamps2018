@@ -1,2 +1,5 @@
 .center{text-align: center; display: block;margin: 0 auto; }
 body{color:turquoise;}
+
+
+li{display: inline; padding: 10px;}
