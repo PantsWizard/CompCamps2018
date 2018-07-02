@@ -1,5 +1,13 @@
 .center{text-align: center; display: block;margin: 0 auto; }
 body{color:turquoise;}
 
-
+body{font-family: "noto sans" sans-serif;}
 li{display: inline; padding: 10px;}
+
+.nav-item {
+  padding: 10px; font-size:20px; display inline;
+}
+
+.nav-link{
+  text-decoration: none; color: black
+}
