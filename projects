@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title class="center"> Jasper's Totally Amazing Compcamps Website!</title>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body>
+    <div class="nav">
+      <h1 class="center">WEBSITE IN PROGRESS</h1>
+     <img class="center" src="images/beans.png" alt="Beautiful Baked Beans"/>
+  </body>
+</html>
