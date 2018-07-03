@@ -10,16 +10,13 @@ class MIT:
     def __init__(self, name):
         self.name = name
         self.health = 10
-        self.damage= random.randint(1,5)
+
+    @property
     def damage(self):
-        return random.randiant
+        return random.randint(1, 7)
 
-        @property
-        def damage(self):
-            return random.randint(1, 7)
-
-        def isAlive(self):
-            return self.health > 0
+    def isAlive(self):
+        return self.health > 0
 
     def attack(self):
         damage = random.randint(0, 10)
@@ -27,8 +24,8 @@ class MIT:
         return damage
 
 mits = [
-    MIT("Kaitlyn"),
-    MIT("Bennet"),
+    MIT("Kaitlin"),
+    MIT("Bennett"),
     MIT("Travis"),
     MIT("Rhiannon"),
     MIT("Austin")
@@ -36,30 +33,30 @@ mits = [
 
 random.shuffle(mits)
 
-
-while len(mits)  > 0:
+while len(mits) > 0:
     mit = mits.pop()
     print("A wild {} appears!".format(mit.name))
     while mit.isAlive():
-        print("you have {} health." .format(health))
-        print("Do you want to fight of flee?")
+        print("You have {} health.".format(health))
+        print("Do you want to fight or flee?")
         if input("Fight / Flee > ").lower() == "fight":
             damage = mit.attack()
             score += damage
-            print ("You did{} damage!" .format(damage))
-            if mit.isalive():
-                damage -= mit.damage
-                health =- damage
-                print("You ")
+            print("You did {} damage!".format(damage))
+            if mit.isAlive():
+                damage = mit.damage
+                health -= damage
+                print("You took {} damage!".format(damage))
         else:
             caught = random.randint(1,5) == 1
             if not caught:
-                print ("You have escaped!")
-                print("your score was {}".format(score))
+                print("You have escaped!")
+                print("Your score was {}".format(score))
                 sys.exit(0)
             else:
                 print("You failed to run away!")
-print ("WOW! You have done it!")
-print ("Good job, {}!" .format(name))
-print("The MITs have been removed from CompCamps!")
-print ("Your score is {}." .format(score))
+
+print("WOW! You have done it!")
+print("Good work {}!".format(name))
+print("The MITs have been removed from CompCamps")
+print("Your Score: {}".format(score))
