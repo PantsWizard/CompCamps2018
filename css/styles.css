@@ -1,7 +1,7 @@
 .center{text-align: center; display: block;margin: 0 auto; }
 body{color:turquoise;}
 
-body{font-family: "noto sans" sans-serif;}
+body{font-family: "noto sans"}
 li{display: inline; padding: 10px;}
 
 .nav-item {
@@ -14,4 +14,12 @@ li{display: inline; padding: 10px;}
 .nav-link:hover{
   color: navy;
   font-size: 32px;
+}
+
+.nav{
+  margin: 0px
+  padding: 0px
+}
+.nav-container{
+
 }
