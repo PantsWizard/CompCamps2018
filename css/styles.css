@@ -11,9 +11,9 @@
 
 .beaned{
   animation-name: beaned
-  animation-delay: 0.5s;
+  animation-duration:0.5s;
   -webkit-animation-name: beaned
-  -webkit-animation-delay: 0.5s;
+  -webkit-animation-delay:0.5s;
 }
 .center{text-align: center; display: block;margin: 0 auto; }
 body{color:turquoise;}
