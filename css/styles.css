@@ -33,14 +33,14 @@ li{display: inline; padding: 10px;}
   text-decoration: none; color: black
 }
 .nav-link:hover{
-  color: navy;
+  color: Black;
   font-size: 32px;
 }
 
 .nav{
   margin: 0px
   padding: 0px
-  background-color: darkgreen}
+  background-color: Black}
 .nav-container{
 
 }
