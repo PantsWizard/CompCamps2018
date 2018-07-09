@@ -2,7 +2,7 @@ import random
 import sys
 import time
 
-name = input("A lone hero wanders a dungeon... What is his name? ")
+name = input("A lone hero wanders a dungeon... What is their name? ")
 health = 75
 
 score = 0
