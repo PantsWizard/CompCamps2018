@@ -3,6 +3,10 @@
   to{opacity: 1;}
 }
 
+body{
+  background-color: #00FFFF
+}
+
 @-webkit-keyframes beans {
   from{opacity: 0;}
   to{opacity: 1}
