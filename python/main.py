@@ -1,8 +1,79 @@
 import random
 import sys
 import time
+import player
+import location
+import item
+print ("What game do you want to play?")
+time.sleep(1)
+print("do you want to play wildernessexplorer or dungeoncrawler?")
+#print("wildernessexplorer/dungeoncrawler>").lower() == "wildernessexplorer"
+print("You will play Wilderness Explorer")
+time.sleep(2)
 
-name = input("A lone hero wanders a dungeon... What is their name? ")
+seed = input("enter a seed: ")
+
+tile = location.Location(seed + "0, 0")
+
+user = player.Player(input("What is your name: "))
+
+x = 0
+y = 0
+tiles = {}
+
+def move(direction):
+    global x, y
+    if direction == "n":
+        y += 1
+    elif direction == "e":
+        x += 1
+    elif direction == "s":
+        y -= 1
+    elif direction == "w":
+        x -= 1
+    key = "{},{}".format(x, y)
+    if key in tiles:
+        return tiles[key]
+    else:
+        newtile = location.Location(seed + key)
+        tiles[key] = newtile
+        return newtile
+
+running = True
+while running:
+    print("You are in {}".format(tile.name))
+    command = input("> ")
+    if command == "items":
+        if user.inventory:
+            print("You have: {}".format(user.getItems())
+        else:sd
+            print("You have no items")
+    elif command == "move":
+        direction = input("N/E/S/W > ")[0].lower()
+        if direction == "n":
+            print("Go North")
+            tile = move("n")
+        elif direction == "e":
+            print ("Go East")
+            tile = move("e")
+        elif direction == "w":
+            print("Go West")
+            tile = move("w")
+        elif direction == "s":
+            print("Go South")
+            tile = move("s")
+        else:
+            print("Moving cancelled")
+    elif command == "search":
+        random.seed(seed + str(x) + str(y))
+        if random.randint(1, 5) == 1:
+            print("You seem to have found something")
+            user.addItem(item.Item("Myself"))
+        else:
+            print("You search for a while but find nothing")
+
+else:
+    name = input("A lone hero wanders a dungeon... What is their name? ")
 health = 75
 
 score = 0
