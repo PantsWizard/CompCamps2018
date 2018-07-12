@@ -4,6 +4,8 @@ import time
 import player
 import location
 import item
+import enemy
+from datetime import datetime
 print ("What game do you want to play?")
 time.sleep(1)
 print("do you want to play wildernessexplorer or dungeoncrawler?")
@@ -20,6 +22,7 @@ user = player.Player(input("What is your name: "))
 x = 0
 y = 0
 tiles = {}
+searched_tiles = []
 
 def move(direction):
     global x, y
@@ -40,37 +43,54 @@ def move(direction):
         return newtile
 
 running = True
-while running:
+while running and user.isalive():
     print("You are in {}".format(tile.name))
+    if tile.enemy and tile.enemy.isAlive():
+        print("There is an enemy present! They have {} health.".format(tile.enemy.health))
     command = input("> ")
     if command == "items":
         if user.inventory:
-            print("You have: {}".format(user.getItems())
-        else:sd
-            print("You have no items")
-    elif command == "move":
-        direction = input("N/E/S/W > ")[0].lower()
-        if direction == "n":
-            print("Go North")
-            tile = move("n")
-        elif direction == "e":
-            print ("Go East")
-            tile = move("e")
-        elif direction == "w":
-            print("Go West")
-            tile = move("w")
-        elif direction == "s":
-            print("Go South")
-            tile = move("s")
+            print("You have: {}".format(user.getItems()))
         else:
             print("Moving cancelled")
     elif command == "search":
+        if tile.seed in searched_tiles:
+            print("You already searched here.")
+            continue
         random.seed(seed + str(x) + str(y))
         if random.randint(1, 5) == 1:
             print("You seem to have found something")
-            user.addItem(item.Item("Myself"))
+            user.addItem(item.Item(item.getRandomItem()))
         else:
             print("You search for a while but find nothing")
+            searched_tiles.append(tile.seed)
+    elif command == "fight":
+        random.seed(datetime.now())
+        while tile.enemy.isAlive():
+            print("You have {} health!".format(user.health))
+            command = input("FIGHT MODE >")
+            if command == "punch":
+                if random.randint(1, 5) < 5:
+                    print("You punched the enemy")
+                    tile.enemy.health -= 3
+                else:
+                    print("You are clumsy and missed your hit! oof.png")
+            elif command == "curbstomp":
+                if random.randint(1, 5) == 1:
+                    print("WOW a succesful curbstomp!")
+                else:
+                    print("What a horrid attempt")
+                    if tile.enemy.health > 0:
+                        user.health -= tile.enemy.damage
+                    elif command.startswith("heal"):
+                        _, item = command.split(" ", 1)
+                        if user.hasitem("life cereal"):
+                            print("You have eaten the whole box. DRY.")
+                            user.health += 10
+                            user.removeitem("life cereal")
+                        else:
+                            print("You have no healing items")
+
 
 else:
     name = input("A lone hero wanders a dungeon... What is their name? ")
