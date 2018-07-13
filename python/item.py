@@ -1,7 +1,7 @@
 import random
 
 class Item:
-    def __init__(self, name):
+    def __init__(self, name, damage, healing):
         self.name = name
         self.damage = damage
         self.healing = healing
