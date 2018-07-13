@@ -58,7 +58,7 @@ while running and user.isalive():
             print("You already searched here.")
             continue
         random.seed(seed + str(x) + str(y))
-        if random.randint(1, 5) == 1:
+        if random.randint(1, 2) == 1:
             print("You seem to have found something")
             user.addItem(item.getRandomItem())
         else:
