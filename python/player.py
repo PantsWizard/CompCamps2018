@@ -5,6 +5,7 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.inventory = []
+        self.health = 20
 
     def isalive(self):
         return self.health

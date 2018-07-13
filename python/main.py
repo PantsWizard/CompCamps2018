@@ -60,7 +60,7 @@ while running and user.isalive():
         random.seed(seed + str(x) + str(y))
         if random.randint(1, 5) == 1:
             print("You seem to have found something")
-            user.addItem(item.Item(item.getRandomItem()))
+            user.addItem(item.getRandomItem())
         else:
             print("You search for a while but find nothing")
             searched_tiles.append(tile.seed)
@@ -90,6 +90,27 @@ while running and user.isalive():
                             user.removeitem("life cereal")
                         else:
                             print("You have no healing items")
+    elif command == "move":
+        direction = input("N/E/S/W > ")[0].lower()
+        if direction == "n":
+            tile = move("n")
+            print("Go north")
+
+        elif direction == "e":
+            tile = move("e")
+            print("Go east")
+
+        elif direction == "s":
+            tile = move("s")
+            print("Go south")
+
+        elif direction == "w":
+            tile = move("w")
+            print("Go west")
+
+        else:
+            print("no")
+
 
 
 else:

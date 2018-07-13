@@ -13,4 +13,4 @@ items = [
 ]
 
 def getRandomItem():
-    return item(random.choice(items))
+    return random.choice(items)
